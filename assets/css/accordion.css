@@ -1,0 +1,489 @@
+/* =============================================
+   Accordion Styles
+   ============================================= */
+
+/* Base Accordion */
+.dsn-accordion {
+  width: 100%;
+}
+
+.dsn-accordion-item {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.dsn-accordion-item:first-child {
+  border-top: 1px solid var(--border-color);
+}
+
+/* Accordion Header */
+.dsn-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dsn-accordion-header:hover {
+  color: var(--accent-color);
+}
+
+.dsn-accordion-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  flex: 1;
+  padding-right: 20px;
+}
+
+.dsn-accordion-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.dsn-accordion-icon i,
+.dsn-accordion-icon span {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.dsn-accordion-item.active .dsn-accordion-icon {
+  background: var(--text-color);
+  border-color: var(--text-color);
+  color: var(--primary-color);
+}
+
+.dsn-accordion-item.active .dsn-accordion-icon i,
+.dsn-accordion-item.active .dsn-accordion-icon span {
+  transform: rotate(45deg);
+}
+
+/* Accordion Content */
+.dsn-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dsn-accordion-item.active .dsn-accordion-content {
+  max-height: 1000px;
+}
+
+.dsn-accordion-content-inner {
+  padding: 0 0 30px 0;
+}
+
+.dsn-accordion-content-inner p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+
+.dsn-accordion-content-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.dsn-accordion-content-inner ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dsn-accordion-content-inner ul li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.dsn-accordion-content-inner ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 8px;
+  height: 1px;
+  background: var(--accent-color);
+}
+
+/* Accordion with Numbers */
+.dsn-accordion-numbered .dsn-accordion-header {
+  position: relative;
+  padding-left: 80px;
+}
+
+.dsn-accordion-numbered .dsn-accordion-number {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent-color);
+  width: 60px;
+  text-align: center;
+}
+
+/* Accordion with Image */
+.dsn-accordion-with-image {
+  display: flex;
+  gap: 50px;
+}
+
+.dsn-accordion-with-image .dsn-accordion {
+  flex: 1;
+}
+
+.dsn-accordion-with-image .dsn-accordion-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.dsn-accordion-with-image .dsn-accordion-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dsn-accordion-with-image .dsn-accordion-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Large Accordion (FAQ Style) */
+.dsn-accordion-large .dsn-accordion-header {
+  padding: 35px 0;
+}
+
+.dsn-accordion-large .dsn-accordion-title {
+  font-size: 28px;
+}
+
+.dsn-accordion-large .dsn-accordion-content-inner {
+  padding: 0 0 40px 0;
+  font-size: 17px;
+}
+
+/* Minimal Accordion */
+.dsn-accordion-minimal .dsn-accordion-item {
+  border: none;
+  margin-bottom: 15px;
+}
+
+.dsn-accordion-minimal .dsn-accordion-header {
+  padding: 20px 25px;
+  background: var(--secondary-color);
+}
+
+.dsn-accordion-minimal .dsn-accordion-content-inner {
+  padding: 25px;
+  background: var(--secondary-color);
+  margin-top: -5px;
+}
+
+/* Bordered Accordion */
+.dsn-accordion-bordered .dsn-accordion-item {
+  border: 1px solid var(--border-color);
+  margin-bottom: 15px;
+}
+
+.dsn-accordion-bordered .dsn-accordion-item:first-child {
+  border-top: 1px solid var(--border-color);
+}
+
+.dsn-accordion-bordered .dsn-accordion-header {
+  padding: 25px 30px;
+}
+
+.dsn-accordion-bordered .dsn-accordion-content-inner {
+  padding: 0 30px 30px 30px;
+}
+
+/* Accordion with Icon Left */
+.dsn-accordion-icon-left .dsn-accordion-header {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.dsn-accordion-icon-left .dsn-accordion-icon {
+  margin-right: 20px;
+}
+
+.dsn-accordion-icon-left .dsn-accordion-title {
+  padding-right: 0;
+  padding-left: 20px;
+}
+
+/* Services Accordion */
+.services-accordion .dsn-accordion-item {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.services-accordion .dsn-accordion-header {
+  padding: 30px 0;
+}
+
+.services-accordion .dsn-accordion-title {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.services-accordion .service-icon {
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--accent-color);
+  flex-shrink: 0;
+}
+
+.services-accordion .service-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.services-accordion .dsn-accordion-content-inner {
+  padding-left: 90px;
+}
+
+/* Solution Accordion */
+.solution-accordion .dsn-accordion-item {
+  background: var(--secondary-color);
+  margin-bottom: 20px;
+  border: none;
+}
+
+.solution-accordion .dsn-accordion-item:first-child {
+  border: none;
+}
+
+.solution-accordion .dsn-accordion-header {
+  padding: 30px 40px;
+}
+
+.solution-accordion .dsn-accordion-content-inner {
+  padding: 0 40px 30px 40px;
+}
+
+.solution-accordion .dsn-accordion-title {
+  font-size: 22px;
+}
+
+/* Process Accordion */
+.process-accordion .dsn-accordion-item {
+  position: relative;
+  padding-left: 100px;
+  border: none;
+  padding-bottom: 40px;
+}
+
+.process-accordion .dsn-accordion-item:first-child {
+  border: none;
+}
+
+.process-accordion .dsn-accordion-item::before {
+  content: '';
+  position: absolute;
+  left: 35px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-color);
+}
+
+.process-accordion .dsn-accordion-item:last-child::before {
+  display: none;
+}
+
+.process-accordion .step-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70px;
+  height: 70px;
+  background: var(--secondary-color);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  z-index: 2;
+}
+
+.process-accordion .dsn-accordion-item.active .step-number {
+  background: var(--text-color);
+  color: var(--primary-color);
+  border-color: var(--text-color);
+}
+
+.process-accordion .dsn-accordion-header {
+  padding: 20px 0;
+}
+
+.process-accordion .dsn-accordion-title {
+  font-size: 28px;
+}
+
+/* FAQ Accordion */
+.faq-accordion .dsn-accordion-item {
+  background: transparent;
+}
+
+.faq-accordion .dsn-accordion-header::before {
+  content: 'Q.';
+  font-weight: 700;
+  margin-right: 15px;
+  color: var(--accent-color);
+}
+
+.faq-accordion .dsn-accordion-content-inner::before {
+  content: 'A.';
+  font-weight: 700;
+  margin-right: 15px;
+  color: var(--accent-color);
+  float: left;
+}
+
+/* Animated Accordion */
+.dsn-accordion-animated .dsn-accordion-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.dsn-accordion-animated .dsn-accordion-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.4s ease;
+}
+
+.dsn-accordion-animated .dsn-accordion-item:hover .dsn-accordion-header::after,
+.dsn-accordion-animated .dsn-accordion-item.active .dsn-accordion-header::after {
+  width: 100%;
+}
+
+/* Responsive Accordion */
+@media (max-width: 991px) {
+  .dsn-accordion-with-image {
+    flex-direction: column;
+  }
+
+  .dsn-accordion-with-image .dsn-accordion-image {
+    height: 300px;
+  }
+
+  .services-accordion .dsn-accordion-content-inner {
+    padding-left: 0;
+  }
+
+  .services-accordion .dsn-accordion-title {
+    gap: 20px;
+  }
+
+  .services-accordion .service-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  .services-accordion .service-name {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .dsn-accordion-title {
+    font-size: 18px;
+  }
+
+  .dsn-accordion-large .dsn-accordion-title {
+    font-size: 22px;
+  }
+
+  .dsn-accordion-numbered .dsn-accordion-header {
+    padding-left: 50px;
+  }
+
+  .dsn-accordion-numbered .dsn-accordion-number {
+    width: 40px;
+  }
+
+  .process-accordion .dsn-accordion-item {
+    padding-left: 70px;
+  }
+
+  .process-accordion .step-number {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  .process-accordion .dsn-accordion-item::before {
+    left: 24px;
+  }
+
+  .process-accordion .dsn-accordion-title {
+    font-size: 22px;
+  }
+
+  .services-accordion .dsn-accordion-title {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .services-accordion .service-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .services-accordion .service-name {
+    font-size: 16px;
+  }
+
+  .solution-accordion .dsn-accordion-header,
+  .solution-accordion .dsn-accordion-content-inner {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}
+
+@media (max-width: 575px) {
+  .dsn-accordion-header {
+    padding: 20px 0;
+  }
+
+  .dsn-accordion-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .dsn-accordion-bordered .dsn-accordion-header {
+    padding: 20px;
+  }
+
+  .dsn-accordion-bordered .dsn-accordion-content-inner {
+    padding: 0 20px 20px 20px;
+  }
+}

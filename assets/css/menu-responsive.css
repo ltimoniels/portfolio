@@ -1,0 +1,505 @@
+/* =============================================
+   Mobile Navigation Styles
+   ============================================= */
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
+}
+
+.menu-toggle .hamburger-box {
+  width: 30px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.menu-toggle .hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -1px;
+}
+
+.menu-toggle .hamburger-inner,
+.menu-toggle .hamburger-inner::before,
+.menu-toggle .hamburger-inner::after {
+  width: 30px;
+  height: 2px;
+  background-color: var(--text-color);
+  position: absolute;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.menu-toggle .hamburger-inner::before,
+.menu-toggle .hamburger-inner::after {
+  content: "";
+  display: block;
+}
+
+.menu-toggle .hamburger-inner::before {
+  top: -8px;
+}
+
+.menu-toggle .hamburger-inner::after {
+  bottom: -8px;
+}
+
+/* Active State */
+.menu-toggle.is-active .hamburger-inner {
+  transform: rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger-inner::before {
+  top: 0;
+  opacity: 0;
+}
+
+.menu-toggle.is-active .hamburger-inner::after {
+  bottom: 0;
+  transform: rotate(-90deg);
+}
+
+/* Desktop Navigation - Hidden on Mobile */
+@media (min-width: 992px) {
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-color);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .mobile-menu-inner {
+    text-align: center;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s ease 0.2s;
+  }
+
+  .mobile-menu.open .mobile-menu-inner {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-menu nav ul li {
+    margin: 15px 0;
+  }
+
+  .mobile-menu nav ul li a {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-menu nav ul li a:hover {
+    color: var(--accent-color);
+  }
+
+  .mobile-menu-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  .mobile-menu-social a {
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-social a:hover {
+    background: var(--text-color);
+    color: var(--primary-color);
+    border-color: var(--text-color);
+  }
+
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .desktop-nav a {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-color);
+    position: relative;
+    padding: 5px 0;
+  }
+
+  .desktop-nav a:not(.nav-cta)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: var(--nav-underline-height, 3px);
+    background: var(--accent-color);
+    transition: width 0.5s ease, left 0.5s ease;
+  }
+
+  .desktop-nav a:not(.nav-cta):hover::after,
+  .desktop-nav a:not(.nav-cta).active::after {
+    width: 100%;
+    left: 0;
+  }
+
+  /* Nav CTA Button */
+  .desktop-nav a.nav-cta {
+    padding: 10px 20px;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+  }
+
+  .desktop-nav a.nav-cta:hover,
+  .desktop-nav a.nav-cta.active {
+    background: var(--accent-color);
+    color: #000;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 991px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  /* Full Screen Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--primary-color);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-inner {
+    text-align: center;
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s ease 0.2s;
+  }
+
+  .mobile-menu.open .mobile-menu-inner {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .mobile-menu nav {
+    margin-bottom: 40px;
+  }
+
+  .mobile-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-menu nav ul li {
+    margin: 15px 0;
+    overflow: hidden;
+  }
+
+  .mobile-menu nav ul li a {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transform: translateY(100%);
+    transition: transform 0.5s ease, color 0.3s ease;
+  }
+
+  .mobile-menu.open nav ul li a {
+    transform: translateY(0);
+  }
+
+  .mobile-menu nav ul li:nth-child(1) a { transition-delay: 0.1s; }
+  .mobile-menu nav ul li:nth-child(2) a { transition-delay: 0.15s; }
+  .mobile-menu nav ul li:nth-child(3) a { transition-delay: 0.2s; }
+  .mobile-menu nav ul li:nth-child(4) a { transition-delay: 0.25s; }
+  .mobile-menu nav ul li:nth-child(5) a { transition-delay: 0.3s; }
+  .mobile-menu nav ul li:nth-child(6) a { transition-delay: 0.35s; }
+  .mobile-menu nav ul li:nth-child(7) a { transition-delay: 0.4s; }
+
+  .mobile-menu nav ul li a:hover {
+    color: var(--accent-color);
+  }
+
+  /* Mobile Menu Social Links */
+  .mobile-menu-social {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.4s;
+  }
+
+  .mobile-menu.open .mobile-menu-social {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-menu-social a {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-social a:hover {
+    background: var(--text-color);
+    color: var(--primary-color);
+    border-color: var(--text-color);
+  }
+
+  /* Mobile Menu Contact Info */
+  .mobile-menu-contact {
+    margin-top: 40px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.5s;
+  }
+
+  .mobile-menu.open .mobile-menu-contact {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .mobile-menu-contact p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 5px;
+  }
+
+  .mobile-menu-contact a {
+    color: var(--text-color);
+  }
+
+  /* Header adjustments for mobile */
+  header {
+    padding: 15px 20px;
+  }
+
+  header.dsn-header-animation {
+    padding: 12px 20px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 575px) {
+  .mobile-menu nav ul li a {
+    font-size: 28px;
+  }
+
+  .mobile-menu-social a {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .mobile-menu nav ul li {
+    margin: 8px 0;
+  }
+
+  .mobile-menu nav ul li a {
+    font-size: 24px;
+  }
+
+  .mobile-menu-social {
+    margin-top: 15px;
+  }
+
+  .mobile-menu-contact {
+    margin-top: 20px;
+  }
+}
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Menu Background Animation */
+.mobile-menu-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-color);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mobile-menu.open .mobile-menu-bg {
+  transform: scaleY(1);
+}
+
+/* Close Button */
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.mobile-menu-close span {
+  position: relative;
+  width: 30px;
+  height: 2px;
+  background: var(--text-color);
+  transform: rotate(45deg);
+}
+
+.mobile-menu-close span::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: var(--text-color);
+  transform: rotate(-90deg);
+}
+
+/* Sub-menu styles for mobile */
+.mobile-menu .has-submenu {
+  position: relative;
+}
+
+.mobile-menu .submenu-toggle {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-left: 10px;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+.mobile-menu .submenu-toggle::before,
+.mobile-menu .submenu-toggle::after {
+  content: '';
+  position: absolute;
+  background: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.mobile-menu .submenu-toggle::before {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 2px;
+}
+
+.mobile-menu .submenu-toggle::after {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 12px;
+}
+
+.mobile-menu .has-submenu.open .submenu-toggle::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.mobile-menu .sub-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.mobile-menu .has-submenu.open .sub-menu {
+  max-height: 300px;
+}
+
+.mobile-menu .sub-menu li a {
+  font-size: 20px !important;
+  font-weight: 400 !important;
+}

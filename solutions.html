@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Solutions - Tailored solutions for various industries and niches.">
+  <title>Solutions | My Personal Brand</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://detourdev.com/assets/img/favicion.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/plugins.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/menu-responsive.css">
+  <link rel="stylesheet" href="assets/css/accordion.css">
+
+  <style>
+    .text-logo { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-color); }
+    .customize-banner { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: #000; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; z-index: 9999; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease; opacity: 0.5; }
+    .customize-banner:hover { transform: translateY(-3px); }
+  </style>
+</head>
+<body>
+  <div class="dsn-loader"><div class="loading-circle"></div></div>
+  <div class="cursor"></div>
+  <div class="cursor-inner"></div>
+
+  <header>
+    <div class="main-navigation">
+      <a href="index.html" class="logo" data-template="logo"><span class="text-logo" data-template="siteName">YourBrand</span></a>
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="solutions.html" class="active">Solutions</a>
+        <a href="process.html">Process</a>
+        <a href="contact.html">Contact</a>
+        <a href="audit.html" class="nav-cta">Book An Audit</a>
+      </nav>
+      <div class="nav-toggle"><div class="hamburger"><span></span><span></span><span></span></div></div>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <nav><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="audit.html">Book A Call</a></li>
+      </ul></nav>
+      <div class="mobile-menu-social" data-template="socialLinks"></div>
+    </div>
+  </div>
+
+  <section class="page-header" data-overlay="6">
+    <div class="page-header-bg" style="background-image: none;" data-template-image="heroBackground"></div>
+    <div class="page-header-content">
+      <h1 class="title mgc-up">Solutions</h1>
+      <div class="breadcrumb mgc-up" data-delay="100">
+        <a href="index.html">Home</a><span>/</span><span>Solutions</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center mgc-up" style="max-width: 800px; margin: 0 auto 60px;">
+        <span class="sub-heading">Industry Focus</span>
+        <h2>Tailored Solutions for Your Industry</h2>
+        <p>Every industry has unique challenges. I bring deep expertise to deliver solutions that address your specific needs.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding pt-0">
+    <div class="container" data-template="solutions">
+      <!-- Populated from config.js -->
+    </div>
+  </section>
+
+  <section class="section-padding bg-darker">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="mgc-up">Don't See Your Industry?</h2>
+        <p class="mgc-up" data-delay="100" style="max-width: 600px; margin: 20px auto 40px;">I work across many sectors. Let's discuss your specific challenges.</p>
+        <div class="mgc-up" data-delay="200">
+          <a href="contact.html" class="btn" style="margin-right: 15px;">Get In Touch</a>
+          <a href="audit.html" class="btn btn-primary">Book A Free Call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div data-template="logo"><span class="text-logo" data-template="siteName">YourBrand</span></div>
+          <p data-template="footerTagline">Expert helping you achieve your goals.</p>
+        </div>
+        <div class="footer-nav"><h5>Quick Links</h5><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="process.html">Process</a></li>
+        </ul></div>
+        <div class="footer-contact">
+          <h5>Get In Touch</h5>
+          <p>Email: <a href="#" data-template="emailLink">hello@yourdomain.com</a></p>
+          <p data-template="location">Your Location</p>
+          <div class="footer-social" data-template="socialLinks"></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-template="copyright">&copy; 2024 YourBrand. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="questionnaire.html" class="customize-banner"><i class="fas fa-magic"></i> Customize This Site</a>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/mgc-grid.js"></script>
+  <script src="assets/js/template-engine.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <!-- Analytics -->
+  <script src="assets/js/analytics.js"></script>
+</body>
+</html>

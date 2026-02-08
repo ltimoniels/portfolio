@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a free consultation call to discuss your needs.">
+  <title>Book A Call | My Personal Brand</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://detourdev.com/assets/img/favicion.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/plugins.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/menu-responsive.css">
+  <link rel="stylesheet" href="assets/css/accordion.css">
+
+  <style>
+    .text-logo { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: var(--text-color); }
+    .customize-banner { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: #000; padding: 12px 20px; border-radius: 8px; font-size: 14px; font-weight: 500; z-index: 9999; display: flex; align-items: center; gap: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.3); transition: transform 0.3s ease; opacity: 0.5; }
+    .customize-banner:hover { transform: translateY(-3px); }
+    .audit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .audit-benefits { background: var(--secondary-color); padding: 50px; }
+    .audit-benefit-item { display: flex; gap: 20px; margin-bottom: 30px; }
+    .audit-benefit-item:last-child { margin-bottom: 0; }
+    .audit-benefit-item .icon { width: 50px; height: 50px; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; color: var(--accent-color); }
+    .audit-benefit-item h5 { font-size: 18px; margin-bottom: 8px; }
+    .audit-benefit-item p { margin: 0; font-size: 14px; }
+    .audit-form { background: var(--secondary-color); padding: 50px; }
+    @media (max-width: 991px) { .audit-grid { grid-template-columns: 1fr; gap: 50px; } }
+  </style>
+</head>
+<body>
+  <div class="dsn-loader"><div class="loading-circle"></div></div>
+  <div class="cursor"></div>
+  <div class="cursor-inner"></div>
+
+  <header>
+    <div class="main-navigation">
+      <a href="index.html" class="logo" data-template="logo"><span class="text-logo" data-template="siteName">YourBrand</span></a>
+      <nav class="desktop-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="process.html">Process</a>
+        <a href="contact.html">Contact</a>
+        <a href="audit.html" class="nav-cta active">Book An Audit</a>
+      </nav>
+      <div class="nav-toggle"><div class="hamburger"><span></span><span></span><span></span></div></div>
+    </div>
+  </header>
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <nav><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="solutions.html">Solutions</a></li>
+        <li><a href="process.html">Process</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="audit.html">Book A Call</a></li>
+      </ul></nav>
+      <div class="mobile-menu-social" data-template="socialLinks"></div>
+    </div>
+  </div>
+
+  <section class="page-header" data-overlay="6">
+    <div class="page-header-bg" style="background-image: none;" data-template-image="heroBackground"></div>
+    <div class="page-header-content">
+      <h1 class="title mgc-up">Book A Call</h1>
+      <div class="breadcrumb mgc-up" data-delay="100">
+        <a href="index.html">Home</a><span>/</span><span>Book A Call</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-header text-center mgc-up" style="max-width: 800px; margin: 0 auto 60px;">
+        <span class="sub-heading" data-template="auditTitle">Free Consultation</span>
+        <h2 data-template="auditSubtitle">Discovery Call</h2>
+        <p data-template="auditDescription">Start with a complimentary consultation to discuss your needs and explore how we can work together.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding pt-0">
+    <div class="container">
+      <div class="audit-grid">
+        <div class="mgc-left">
+          <h3 style="margin-bottom: 30px;">What You'll Get</h3>
+
+          <div class="audit-benefits" data-template="auditBenefits">
+            <!-- Populated from config.js -->
+          </div>
+
+          <div style="margin-top: 40px; padding: 30px; border: 1px solid var(--border-color);">
+            <h5 style="margin-bottom: 15px;">What to Expect</h5>
+            <ul style="color: var(--text-muted); line-height: 2;">
+              <li>- <span data-template="auditDuration">30-45 minute</span> video call</li>
+              <li>- Discussion of your challenges and goals</li>
+              <li>- Initial insights and recommendations</li>
+              <li>- No pressure, no sales pitch</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="audit-form mgc-right">
+          <h4 style="margin-bottom: 30px;">Schedule Your Free Call</h4>
+
+          <!-- Calendly embed - shown when calendlyUrl is configured -->
+          <div id="calendlyEmbed" style="display: none;">
+            <div class="calendly-inline-widget" data-url="" style="min-width:320px;height:630px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+
+          <!-- Fallback form - shown when no calendlyUrl -->
+          <div id="auditFormContainer">
+            <form id="auditForm" action="https://formsubmit.co/YOUR_EMAIL" method="POST">
+              <!-- Formsubmit configuration -->
+              <input type="hidden" name="_subject" value="New Audit Request">
+              <input type="hidden" name="_next" id="auditFormNext" value="">
+              <input type="hidden" name="_template" value="table">
+              <input type="text" name="_honey" style="display:none">
+
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="company">Company/Organization</label>
+                <input type="text" id="company" name="company" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="challenge">What would you like to discuss? *</label>
+                <textarea id="challenge" name="challenge" class="form-control" rows="4" placeholder="Briefly describe your situation or goals..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Request Free Call</button>
+            </form>
+            <p style="margin-top: 20px; font-size: 13px; color: var(--text-muted);">Your information will never be shared with third parties.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-darker">
+    <div class="container">
+      <div class="section-header text-center mgc-up">
+        <span class="sub-heading">Questions</span>
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+      <div class="dsn-accordion mgc-up" data-delay="200" style="max-width: 800px; margin: 0 auto;">
+        <div class="dsn-accordion-item">
+          <div class="dsn-accordion-header">
+            <h5 class="dsn-accordion-title">Is the consultation really free?</h5>
+            <div class="dsn-accordion-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="dsn-accordion-content">
+            <div class="dsn-accordion-content-inner">
+              <p>Yes, the initial consultation is completely free with no obligation. It's an opportunity for us to understand your needs and for you to see if I'm the right fit.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dsn-accordion-item">
+          <div class="dsn-accordion-header">
+            <h5 class="dsn-accordion-title">How should I prepare?</h5>
+            <div class="dsn-accordion-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="dsn-accordion-content">
+            <div class="dsn-accordion-content-inner">
+              <p>Come prepared to discuss your current situation, challenges, and goals. Having specific questions or topics in mind helps make the most of our time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="dsn-accordion-item">
+          <div class="dsn-accordion-header">
+            <h5 class="dsn-accordion-title">What happens after the call?</h5>
+            <div class="dsn-accordion-icon"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="dsn-accordion-content">
+            <div class="dsn-accordion-content-inner">
+              <p>If we both see potential for working together, I'll prepare a proposal outlining recommended next steps. There's no pressure to move forward - the decision is entirely yours.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div data-template="logo"><span class="text-logo" data-template="siteName">YourBrand</span></div>
+          <p data-template="footerTagline">Expert helping you achieve your goals.</p>
+        </div>
+        <div class="footer-nav"><h5>Quick Links</h5><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="process.html">Process</a></li>
+        </ul></div>
+        <div class="footer-contact">
+          <h5>Get In Touch</h5>
+          <p>Email: <a href="#" data-template="emailLink">hello@yourdomain.com</a></p>
+          <p data-template="location">Your Location</p>
+          <div class="footer-social" data-template="socialLinks"></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p data-template="copyright">&copy; 2024 YourBrand. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a href="questionnaire.html" class="customize-banner"><i class="fas fa-magic"></i> Customize This Site</a>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/mgc-grid.js"></script>
+  <script src="assets/js/template-engine.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <!-- Analytics -->
+  <script src="assets/js/analytics.js"></script>
+  <script>
+    // Set up Formsubmit with email from config
+    document.addEventListener('DOMContentLoaded', async function() {
+      // Check localStorage first, then site-config.json, then config.js
+      var config;
+      var savedConfig = localStorage.getItem('siteConfig');
+
+      if (savedConfig) {
+        config = JSON.parse(savedConfig);
+      } else {
+        // Try to load site-config.json
+        try {
+          var response = await fetch('site-config.json');
+          if (response.ok) {
+            config = await response.json();
+          } else {
+            config = window.siteConfig || {};
+          }
+        } catch (e) {
+          config = window.siteConfig || {};
+        }
+      }
+
+      var email = config.contact?.email || 'hello@yourdomain.com';
+
+      var form = document.getElementById('auditForm');
+      if (form) {
+        form.action = 'https://formsubmit.co/' + email;
+      }
+
+      // Set the _next redirect to current page with success param
+      var nextInput = document.getElementById('auditFormNext');
+      if (nextInput) {
+        nextInput.value = window.location.href.split('?')[0] + '?submitted=true';
+      }
+
+      // Check for successful submission
+      if (window.location.search.includes('submitted=true')) {
+        var formContainer = document.querySelector('.audit-form');
+        if (formContainer) {
+          var successMsg = document.createElement('div');
+          successMsg.className = 'form-success';
+          successMsg.innerHTML = '<div style="background: rgba(68, 255, 68, 0.1); border: 1px solid #44ff44; padding: 20px; margin-bottom: 20px; text-align: center;"><i class="fas fa-check-circle" style="color: #44ff44; font-size: 24px; margin-bottom: 10px; display: block;"></i><p style="color: #44ff44; margin: 0;">Thank you for your interest! I will reach out within 24 hours to schedule your free call.</p></div>';
+          formContainer.insertBefore(successMsg, formContainer.firstChild);
+          formContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    });
+  </script>
+</body>
+</html>

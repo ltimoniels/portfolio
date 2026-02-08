@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional personal brand website showcasing expertise, services, and solutions.">
+  <title>Home | My Personal Brand</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://detourdev.com/assets/img/favicion.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/plugins.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/menu-responsive.css">
+  <link rel="stylesheet" href="assets/css/accordion.css">
+
+  <style>
+    .text-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--text-color);
+    }
+    .customize-banner {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent-color);
+      opacity: 0.5;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .customize-banner:hover {
+      transform: translateY(-3px);
+    }
+    .customize-banner i {
+      font-size: 18px;
+    }
+
+    /* Bottom-left action buttons container */
+    .bottom-left-actions {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      z-index: 9999;
+    }
+
+    /* QR Code Button */
+    .qr-code-btn {
+      background: var(--accent-color);
+      opacity: 0.5;
+      color: #000;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .qr-code-btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.8;
+    }
+
+    /* Resume PDF Button */
+    .resume-pdf-btn {
+      background: var(--accent-color);
+      opacity: 0.5;
+      color: #000;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 20px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+    }
+    .resume-pdf-btn:hover {
+      transform: translateY(-3px);
+      opacity: 0.8;
+    }
+
+    /* QR Code Modal */
+    .qr-modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      z-index: 10000;
+      align-items: center;
+      justify-content: center;
+    }
+    .qr-modal-overlay.active {
+      display: flex;
+    }
+    .qr-modal {
+      background: #fff;
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      max-width: 320px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .qr-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: #333;
+      line-height: 1;
+    }
+    .qr-modal h4 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #000;
+    }
+    .qr-modal p {
+      margin: 0 0 20px 0;
+      font-size: 13px;
+      color: #666;
+    }
+    #qrCodeCanvas {
+      display: flex;
+      justify-content: center;
+    }
+    #qrCodeCanvas img,
+    #qrCodeCanvas canvas {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Page Loader -->
+  <div class="dsn-loader">
+    <div class="loading-circle"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-inner"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="main-navigation">
+      <a href="index.html" class="logo" data-template="logo">
+        <span class="text-logo" data-template="siteName">YourBrand</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="process.html">Process</a>
+        <a href="contact.html">Contact</a>
+        <a href="audit.html" class="nav-cta">Book An Audit</a>
+      </nav>
+
+      <div class="nav-toggle">
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="mobile-menu-inner">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="solutions.html">Solutions</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="audit.html">Book A Call</a></li>
+        </ul>
+      </nav>
+      <div class="mobile-menu-social" data-template="socialLinks">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Slider Section -->
+  <section class="hero-section">
+    <div class="hero-slider swiper">
+      <div class="swiper-wrapper" data-template="heroSlides">
+        <!-- Populated from config.js -->
+      </div>
+
+      <!-- Slider Navigation -->
+      <div class="hero-slider-nav">
+        <button class="slider-nav-btn prev"><i class="fas fa-arrow-left"></i></button>
+        <button class="slider-nav-btn next"><i class="fas fa-arrow-right"></i></button>
+      </div>
+
+      <!-- Progress Bar -->
+      <div class="slider-progress">
+        <div class="slider-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="mouse"></div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="intro-section">
+        <div class="intro-content mgc-left">
+          <span class="section-header sub-heading">About Me</span>
+          <h2>Solutions for Modern Challenges</h2>
+          <div data-template="shortBio">
+            <!-- Populated from config.js -->
+          </div>
+          <a href="about.html" class="btn" style="margin-top: 20px;">More About Me</a>
+        </div>
+        <div class="intro-image mgc-right">
+          <img src="" alt="About" data-template-image="aboutImage">
+          <div class="image-overlay">
+            <h3 data-template="yearsExperience"><!-- config.js --></h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Accordion Section -->
+  <section class="section-padding bg-darker">
+    <div class="container">
+      <div class="section-header text-center mgc-up">
+        <span class="sub-heading">What I Do</span>
+        <h2>Services & Expertise</h2>
+        <p>Comprehensive services tailored to your needs</p>
+      </div>
+
+      <div class="dsn-accordion services-accordion mgc-up" data-delay="200" data-template="servicesAccordion">
+        <!-- Populated from config.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Parallax Image Break -->
+  <section class="image-section" data-overlay="3">
+    <div class="bg-image" style="background-image: none;" data-template-image="parallaxImage1"></div>
+  </section>
+
+  <!-- Focus Areas Section (Where We Can Help) -->
+  <section class="section-padding focus-areas-section">
+    <div class="container">
+      <div class="section-header mgc-up" data-template="focusAreasHeader">
+        <span class="sub-heading">Where We Can Help</span>
+        <h2>Areas of Expertise</h2>
+        <p class="focus-tagline">Specialized guidance available • On-site or remote • Tailored to your needs</p>
+      </div>
+
+      <div class="focus-areas-grid mgc-up" data-delay="200" data-template="focusAreas">
+        <!-- Populated from config.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section-padding bg-darker">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="mgc-up">Ready to Get Started?</h2>
+        <p class="mgc-up" data-delay="100" style="max-width: 600px; margin: 20px auto 40px;">Let's discuss how I can help you achieve your goals.</p>
+        <a href="audit.html" class="btn btn-primary mgc-up" data-delay="200">Book A Free Call</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <div data-template="logo">
+            <span class="text-logo" data-template="siteName">YourBrand</span>
+          </div>
+          <p data-template="footerTagline">Expert helping you leverage the right tools for growth and efficiency.</p>
+        </div>
+
+        <div class="footer-nav">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="solutions.html">Solutions</a></li>
+            <li><a href="process.html">Process</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact">
+          <h5>Get In Touch</h5>
+          <p>Email: <a href="#" data-template="emailLink">hello@yourdomain.com</a></p>
+          <p data-template="location">Your Location</p>
+          <div class="footer-social" data-template="socialLinks">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p data-template="copyright">&copy; 2024 YourBrand. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom-left Action Buttons -->
+  <div class="bottom-left-actions">
+    <button class="qr-code-btn" id="qrCodeBtn" title="Share via QR Code">
+      <i class="fas fa-qrcode"></i>
+    </button>
+    <button class="resume-pdf-btn" id="resumePdfBtn" title="Download Resume PDF">
+      <i class="fas fa-file-pdf"></i>
+    </button>
+  </div>
+
+  <!-- QR Code Modal -->
+  <div class="qr-modal-overlay" id="qrModalOverlay">
+    <div class="qr-modal">
+      <button class="qr-modal-close" id="qrModalClose">&times;</button>
+      <h4>Scan to Connect</h4>
+      <p>Point your camera to save my info</p>
+      <div id="qrCodeCanvas"></div>
+    </div>
+  </div>
+
+  <!-- Customize Banner -->
+  <a href="questionnaire.html" class="customize-banner">
+    <i class="fas fa-magic"></i>
+    Customize This Site
+  </a>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/plugins.js"></script>
+  <script src="assets/js/mgc-grid.js"></script>
+  <script src="assets/js/template-engine.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <!-- Analytics -->
+  <script src="assets/js/analytics.js"></script>
+
+  <!-- QR Code Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- jsPDF Library -->
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script>
+    (function() {
+      var btn = document.getElementById('qrCodeBtn');
+      var overlay = document.getElementById('qrModalOverlay');
+      var closeBtn = document.getElementById('qrModalClose');
+      var container = document.getElementById('qrCodeCanvas');
+      var generated = false;
+
+      function generateQR() {
+        if (generated) return;
+        new QRCode(container, {
+          text: window.location.href,
+          width: 220,
+          height: 220,
+          colorDark: '#000000',
+          colorLight: '#ffffff',
+          correctLevel: QRCode.CorrectLevel.H
+        });
+        generated = true;
+      }
+
+      btn.addEventListener('click', function() {
+        overlay.classList.add('active');
+        generateQR();
+      });
+
+      closeBtn.addEventListener('click', function() {
+        overlay.classList.remove('active');
+      });
+
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) overlay.classList.remove('active');
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') overlay.classList.remove('active');
+      });
+    })();
+  </script>
+
+  <!-- Resume PDF Generator -->
+  <script>
+    (function() {
+      var btn = document.getElementById('resumePdfBtn');
+
+      function getConfig() {
+        // Use the same resolved config the template engine uses
+        if (window.TemplateEngine && window.TemplateEngine.config) {
+          return window.TemplateEngine.config;
+        }
+        // Fallback: try localStorage, then default
+        try {
+          var stored = localStorage.getItem('siteConfig');
+          if (stored) return JSON.parse(stored);
+        } catch (e) {}
+        if (window.siteConfig) return window.siteConfig;
+        return null;
+      }
+
+      function loadImageAsDataURL(url) {
+        return new Promise(function(resolve) {
+          if (!url) { resolve(null); return; }
+          var img = new Image();
+          img.crossOrigin = 'anonymous';
+          img.onload = function() {
+            try {
+              var canvas = document.createElement('canvas');
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              canvas.getContext('2d').drawImage(img, 0, 0);
+              resolve({ dataURL: canvas.toDataURL('image/jpeg', 0.85), w: img.naturalWidth, h: img.naturalHeight });
+            } catch (e) { resolve(null); }
+          };
+          img.onerror = function() { resolve(null); };
+          img.src = url;
+        });
+      }
+
+      function generateResumePDF() {
+        var config = getConfig();
+        if (!config) { alert('Site configuration not found.'); return; }
+        var jsPDF = window.jspdf && window.jspdf.jsPDF;
+        if (!jsPDF) { alert('PDF library failed to load. Please refresh and try again.'); return; }
+
+        var images = config.images || {};
+        var aboutImageUrl = images.aboutImage || '';
+
+        loadImageAsDataURL(aboutImageUrl).then(function(imgData) {
+          buildPDF(config, jsPDF, imgData);
+        });
+      }
+
+      function buildPDF(config, jsPDF, photoData) {
+        var doc = new jsPDF({ unit: 'mm', format: 'a4' });
+        var pageW = 210;
+        var margin = 18;
+        var contentW = pageW - margin * 2;
+        var y = 18;
+        var lineH = 5.5;
+
+        // Photo dimensions for header
+        var photoSize = 32; // mm square
+        var photoX = pageW - margin - photoSize;
+        var headerTextW = contentW - (photoData ? photoSize + 6 : 0);
+
+        // Colors
+        var accent = [140, 120, 90];
+        var dark = [30, 30, 30];
+        var muted = [120, 120, 120];
+
+        function checkPage(needed) {
+          if (y + needed > 280) { doc.addPage(); y = 18; }
+        }
+
+        function drawSectionLine() {
+          doc.setDrawColor(accent[0], accent[1], accent[2]);
+          doc.setLineWidth(0.4);
+          doc.line(margin, y, pageW - margin, y);
+          y += 4;
+        }
+
+        function sectionHeading(text) {
+          checkPage(14);
+          drawSectionLine();
+          doc.setFont('helvetica', 'bold');
+          doc.setFontSize(11);
+          doc.setTextColor(accent[0], accent[1], accent[2]);
+          doc.text(text.toUpperCase(), margin, y);
+          y += 7;
+        }
+
+        function bodyText(text, opts) {
+          opts = opts || {};
+          doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
+          doc.setFontSize(opts.size || 9.5);
+          doc.setTextColor(opts.color ? opts.color[0] : dark[0], opts.color ? opts.color[1] : dark[1], opts.color ? opts.color[2] : dark[2]);
+          var lines = doc.splitTextToSize(text, opts.width || contentW);
+          checkPage(lines.length * lineH + 2);
+          doc.text(lines, opts.x || margin, y);
+          y += lines.length * lineH;
+        }
+
+        var p = config.personal || {};
+        var c = config.contact || {};
+
+        // --- PHOTO (top-right) ---
+        if (photoData) {
+          var aspect = photoData.w / photoData.h;
+          var imgW = photoSize;
+          var imgH = photoSize / aspect;
+          if (imgH > photoSize) { imgH = photoSize; imgW = photoSize * aspect; }
+          var imgX = photoX + (photoSize - imgW) / 2;
+          doc.addImage(photoData.dataURL, 'JPEG', imgX, y - 2, imgW, imgH);
+        }
+
+        // --- HEADER ---
+        var headerStartY = y;
+        doc.setFont('helvetica', 'bold');
+        doc.setFontSize(24);
+        doc.setTextColor(dark[0], dark[1], dark[2]);
+        doc.text(p.name || 'Name', margin, y, { maxWidth: headerTextW });
+        y += 8;
+
+        if (p.title) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(13);
+          doc.setTextColor(accent[0], accent[1], accent[2]);
+          doc.text(p.title, margin, y, { maxWidth: headerTextW });
+          y += 6;
+        }
+        if (p.tagline) {
+          doc.setFont('helvetica', 'italic');
+          doc.setFontSize(10);
+          doc.setTextColor(muted[0], muted[1], muted[2]);
+          doc.text(p.tagline, margin, y, { maxWidth: headerTextW });
+          y += 6;
+        }
+
+        // Ensure y is past the photo if the text was shorter
+        if (photoData) {
+          var photoBottom = headerStartY - 2 + photoSize + 2;
+          if (y < photoBottom) y = photoBottom;
+        }
+        y += 2;
+
+        // --- CONTACT ---
+        var contactParts = [];
+        if (c.email) contactParts.push(c.email);
+        if (c.phone) contactParts.push(c.phone);
+        if (c.website) contactParts.push(c.website);
+        if (p.location) contactParts.push(p.location);
+
+        if (contactParts.length) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(9);
+          doc.setTextColor(muted[0], muted[1], muted[2]);
+          doc.text(contactParts.join('  |  '), margin, y);
+          y += 6;
+        }
+
+        // --- SOCIAL ---
+        var social = config.social || {};
+        var socialParts = [];
+        Object.keys(social).forEach(function(key) {
+          if (social[key]) socialParts.push(key.charAt(0).toUpperCase() + key.slice(1) + ': ' + social[key]);
+        });
+        if (socialParts.length) {
+          doc.setFont('helvetica', 'normal');
+          doc.setFontSize(8);
+          doc.setTextColor(muted[0], muted[1], muted[2]);
+          var socialLines = doc.splitTextToSize(socialParts.join('  |  '), contentW);
+          doc.text(socialLines, margin, y);
+          y += socialLines.length * 4 + 2;
+        }
+
+        y += 2;
+
+        // --- BIO ---
+        if (p.shortBio) {
+          sectionHeading('About');
+          bodyText(p.shortBio);
+          y += 3;
+        }
+
+        // --- EXPERIENCE / TIMELINE ---
+        var timeline = config.timeline;
+        if (timeline && timeline.length) {
+          sectionHeading('Experience');
+          timeline.forEach(function(item) {
+            checkPage(18);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(dark[0], dark[1], dark[2]);
+            doc.text(item.title || '', margin, y);
+
+            if (item.period) {
+              doc.setFont('helvetica', 'normal');
+              doc.setFontSize(9);
+              doc.setTextColor(muted[0], muted[1], muted[2]);
+              doc.text(item.period, pageW - margin, y, { align: 'right' });
+            }
+            y += lineH;
+
+            if (item.description) {
+              bodyText(item.description, { color: muted });
+            }
+            y += 3;
+          });
+        }
+
+        // --- SERVICES / SKILLS ---
+        var services = config.services;
+        if (services && services.length) {
+          sectionHeading('Services & Skills');
+          services.forEach(function(svc) {
+            checkPage(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9.5);
+            doc.setTextColor(dark[0], dark[1], dark[2]);
+            doc.text(svc.title || '', margin, y);
+            y += lineH;
+
+            if (svc.shortDesc) {
+              bodyText(svc.shortDesc, { color: muted, size: 9 });
+            }
+            y += 2;
+          });
+        }
+
+        // --- INDUSTRIES SERVED ---
+        var solutions = config.solutions;
+        if (solutions && solutions.length) {
+          sectionHeading('Industries Served');
+          solutions.forEach(function(sol) {
+            checkPage(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9.5);
+            doc.setTextColor(dark[0], dark[1], dark[2]);
+            doc.text(sol.title || '', margin, y);
+            y += lineH;
+
+            if (sol.description) {
+              bodyText(sol.description, { color: muted, size: 9 });
+            }
+            y += 2;
+          });
+        }
+
+        // --- PHILOSOPHY / VALUES ---
+        var philosophy = config.philosophy;
+        if (philosophy && philosophy.length) {
+          sectionHeading('Values & Philosophy');
+          philosophy.forEach(function(val) {
+            checkPage(12);
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(9.5);
+            doc.setTextColor(dark[0], dark[1], dark[2]);
+            doc.text(val.title || '', margin, y);
+            y += lineH;
+
+            if (val.description) {
+              bodyText(val.description, { color: muted, size: 9 });
+            }
+            y += 2;
+          });
+        }
+
+        // --- TESTIMONIALS ---
+        var testimonials = config.testimonials;
+        if (testimonials && testimonials.length) {
+          sectionHeading('Testimonials');
+          testimonials.forEach(function(t) {
+            checkPage(20);
+            doc.setFont('helvetica', 'italic');
+            doc.setFontSize(9.5);
+            doc.setTextColor(dark[0], dark[1], dark[2]);
+            var quoteLines = doc.splitTextToSize('"' + (t.quote || '') + '"', contentW);
+            checkPage(quoteLines.length * lineH + 8);
+            doc.text(quoteLines, margin, y);
+            y += quoteLines.length * lineH + 1;
+
+            var attribution = '— ' + (t.author || '');
+            if (t.role) attribution += ', ' + t.role;
+            if (t.company) attribution += ', ' + t.company;
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(8.5);
+            doc.setTextColor(muted[0], muted[1], muted[2]);
+            doc.text(attribution, margin, y);
+            y += lineH + 3;
+          });
+        }
+
+        // --- DOWNLOAD ---
+        var firstName = (p.firstName || 'Resume').replace(/\s+/g, '_');
+        var lastName = (p.lastName || '').replace(/\s+/g, '_');
+        var filename = lastName ? firstName + '_' + lastName + '_Resume.pdf' : firstName + '_Resume.pdf';
+        doc.save(filename);
+      }
+
+      btn.addEventListener('click', generateResumePDF);
+    })();
+  </script>
+</body>
+</html>
