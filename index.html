@@ -428,7 +428,15 @@
       function generateQR() {
         if (generated) return;
         new QRCode(container, {
-          text: window.location.href,
+          text: `BEGIN:VCARD
+VERSION:3.0
+N:Lindner;Timo Niels;;;
+FN:Timo Niels Lindner
+ORG:Grafik- & Konzeptwerkstatt
+EMAIL:ltimoniels@mail.de
+TEL;TYPE=CELL:+4915256553418
+URL:https://ltimoniels.myportfolio.com
+END:VCARD`,
           width: 220,
           height: 220,
           colorDark: '#000000',
