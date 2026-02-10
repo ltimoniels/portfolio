@@ -745,6 +745,20 @@
           </a>
         </li>
         <li>
+          <a href="#process" data-section="process">
+            <i class="fas fa-tasks"></i>
+            Process
+            <span class="progress-dot"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#problems" data-section="problems">
+            <i class="fas fa-exclamation-triangle"></i>
+            Challenges
+            <span class="progress-dot"></span>
+          </a>
+        </li>
+        <li>
           <a href="#experience" data-section="experience">
             <i class="fas fa-history"></i>
             Experience
@@ -1170,6 +1184,56 @@
           <button class="btn btn-secondary" onclick="goToSection('focus-areas')">
             <i class="fas fa-arrow-left"></i> Back
           </button>
+          <button class="btn btn-primary" onclick="goToSection('process')">
+            Next: Process <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Process Section -->
+      <section class="section" id="section-process">
+        <div class="section-header">
+          <h2>Process</h2>
+          <p>Describe how you work — the steps you take with clients from start to finish.</p>
+        </div>
+
+        <div id="processContainer">
+          <!-- Process steps will be populated by JS -->
+        </div>
+
+        <button class="add-item-btn" onclick="addProcessStep()">
+          <i class="fas fa-plus"></i> Add Another Step
+        </button>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary" onclick="goToSection('solutions')">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <button class="btn btn-primary" onclick="goToSection('problems')">
+            Next: Challenges <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </section>
+
+      <!-- Problems Section -->
+      <section class="section" id="section-problems">
+        <div class="section-header">
+          <h2>Common Challenges</h2>
+          <p>What problems do your clients face, and how do you solve them?</p>
+        </div>
+
+        <div id="problemsContainer">
+          <!-- Problems will be populated by JS -->
+        </div>
+
+        <button class="add-item-btn" onclick="addProblem()">
+          <i class="fas fa-plus"></i> Add Another Challenge
+        </button>
+
+        <div class="section-nav">
+          <button class="btn btn-secondary" onclick="goToSection('process')">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
           <button class="btn btn-primary" onclick="goToSection('experience')">
             Next: Experience <i class="fas fa-arrow-right"></i>
           </button>
@@ -1205,7 +1269,7 @@
         </button>
 
         <div class="section-nav">
-          <button class="btn btn-secondary" onclick="goToSection('solutions')">
+          <button class="btn btn-secondary" onclick="goToSection('problems')">
             <i class="fas fa-arrow-left"></i> Back
           </button>
           <button class="btn btn-primary" onclick="goToSection('testimonials')">
@@ -1613,6 +1677,18 @@
       (currentConfig.solutions || []).forEach((solution, i) => addSolution(solution, i));
       if (!currentConfig.solutions?.length) addSolution();
 
+      // Process
+      const processContainer = document.getElementById('processContainer');
+      processContainer.innerHTML = '';
+      (currentConfig.process || []).forEach((item, i) => addProcessStep(item, i));
+      if (!currentConfig.process?.length) addProcessStep();
+
+      // Problems
+      const problemsContainer = document.getElementById('problemsContainer');
+      problemsContainer.innerHTML = '';
+      (currentConfig.problems || []).forEach((item, i) => addProblem(item, i));
+      if (!currentConfig.problems?.length) addProblem();
+
       // Focus Areas
       const focusAreasContainer = document.getElementById('focusAreasContainer');
       focusAreasContainer.innerHTML = '';
@@ -1765,6 +1841,72 @@
           <div class="form-group">
             <label>Key Features (one per line)</label>
             <textarea class="form-control" name="solution[${i}][features]" rows="3" placeholder="Feature 1&#10;Feature 2&#10;Feature 3">${(data.features || []).join('\n')}</textarea>
+          </div>
+        </div>
+      `;
+
+      container.insertAdjacentHTML('beforeend', html);
+    }
+
+    // ==========================================
+    // Process Steps
+    // ==========================================
+    function addProcessStep(data = {}, index = null) {
+      const container = document.getElementById('processContainer');
+      const i = index !== null ? index : container.children.length;
+
+      const html = `
+        <div class="repeater" data-index="${i}">
+          <div class="repeater-header">
+            <h4>Step ${i + 1}</h4>
+            <div class="repeater-actions">
+              <button class="btn-icon delete" onclick="removeRepeaterItem(this, 'process')"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" name="process[${i}][title]" value="${data.title || ''}" placeholder="e.g., Discovery & Research">
+          </div>
+          <div class="form-group">
+            <label>Short Description</label>
+            <input type="text" class="form-control" name="process[${i}][shortDesc]" value="${data.shortDesc || ''}" placeholder="Brief summary of this step">
+          </div>
+          <div class="form-group">
+            <label>Full Description</label>
+            <textarea class="form-control" name="process[${i}][fullDesc]" rows="3" placeholder="Detailed explanation of what happens in this step...">${data.fullDesc || ''}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Deliverables (one per line)</label>
+            <textarea class="form-control" name="process[${i}][deliverables]" rows="3" placeholder="Deliverable 1&#10;Deliverable 2&#10;Deliverable 3">${(data.deliverables || []).join('\n')}</textarea>
+          </div>
+        </div>
+      `;
+
+      container.insertAdjacentHTML('beforeend', html);
+    }
+
+    // ==========================================
+    // Problems
+    // ==========================================
+    function addProblem(data = {}, index = null) {
+      const container = document.getElementById('problemsContainer');
+      const i = index !== null ? index : container.children.length;
+
+      const html = `
+        <div class="repeater" data-index="${i}">
+          <div class="repeater-header">
+            <h4>Challenge ${i + 1}</h4>
+            <div class="repeater-actions">
+              <button class="btn-icon delete" onclick="removeRepeaterItem(this, 'problems')"><i class="fas fa-trash"></i></button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Problem</label>
+            <textarea class="form-control" name="problem[${i}][problem]" rows="2" placeholder="Describe the challenge your clients face...">${data.problem || ''}</textarea>
+          </div>
+          <div class="form-group">
+            <label>Solution</label>
+            <textarea class="form-control" name="problem[${i}][solution]" rows="2" placeholder="How you solve this problem...">${data.solution || ''}</textarea>
           </div>
         </div>
       `;
@@ -2069,8 +2211,8 @@
           copyright: getValue('copyrightName') || siteConfig.footer?.copyright || ''
         },
         // Use current config if available, otherwise fall back to defaults
-        process: (currentConfig.process && currentConfig.process.length > 0) ? currentConfig.process : siteConfig.process,
-        problems: (currentConfig.problems && currentConfig.problems.length > 0) ? currentConfig.problems : siteConfig.problems,
+        process: collectRepeaterData('process', ['title', 'shortDesc', 'fullDesc'], ['deliverables']),
+        problems: collectRepeaterData('problem', ['problem', 'solution']),
         audit: currentConfig.audit || siteConfig.audit
       };
 
